@@ -8,6 +8,7 @@ environment:
 dependencies: 
   cupertino_icons: ^1.0.2
   get: 4.6.5
+  velocity_x: ^3.6.0
   flutter: 
     sdk: flutter
 
