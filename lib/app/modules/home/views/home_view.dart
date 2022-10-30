@@ -18,7 +18,7 @@ class HomeView extends GetView<HomeController> {
       return Scaffold(
           key: controller.scaffoldKey,
           backgroundColor: Vx.gray200,
-          drawer: MyDrawer(),
+          drawer: MyDrawer(modelname: "nikhil"),
           body: Stack(
             children: [
               Container(

@@ -10,6 +10,7 @@ dependencies:
   get: 4.6.5
   velocity_x: ^3.6.0
   flutter_launcher_icons: ^0.10.0
+  device_info_plus: ^8.0.0
   flutter: 
     sdk: flutter
 
@@ -30,5 +31,6 @@ flutter_icons:
 flutter: 
   uses-material-design: true
   assets:
-    - assets/
+    - assets/avatar/
+    - assets/icon/
 
