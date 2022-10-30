@@ -1,8 +1,11 @@
 import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:share_h/app/data/collection.dart';
+import 'package:share_h/app/routes/app_pages.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class MyDrawer extends StatefulWidget {
@@ -45,14 +48,16 @@ class _MyDrawerState extends State<MyDrawer> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     InkWell(
-                      onTap: (() => ,
+                      onTap: () => Get.toNamed(Routes.EDIT_PROFILE),
+                      splashColor: Vx.blue200,
                       child: const CircleAvatar(
                         radius: 50,
-                        backgroundImage: AssetImage("assets/avatar/avatar5.png"),
+                        backgroundImage:
+                            AssetImage("assets/avatar/avatar5.png"),
                       ),
                     ),
                     SizedBox(
-                      height: Get.height * 0.01,
+                      height: Get.height * 0.012,
                     ),
                     const Text(
                       'UserName',
@@ -62,31 +67,56 @@ class _MyDrawerState extends State<MyDrawer> {
                           fontSize: 18),
                     ),
                     SizedBox(
-                      height: Get.height * 0.01,
+                      height: Get.height * 0.012,
                     ),
-                    const Text(
-                      'nikhil',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 16),
+                    InkWell(
+                      onTap: () => Get.toNamed(Routes.EDIT_PROFILE),
+                      splashColor: Vx.blue200,
+                      child: const Text(
+                        'nikhil',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16),
+                      ),
                     )
                   ],
                 ),
               ),
             ),
           ),
-          Divider(
+          const Divider(
             thickness: 5,
+            color: Vx.blue300,
           ),
           ListTile(
-            title: Text("Ttem 1"),
-            trailing: Icon(Icons.arrow_forward),
-            selectedColor: Colors.white,
+            leading: Icon(Icons.share,
+                color: Colors.black, size: Collection.diagonal * 0.04),
+            title: Text("Share"),
+            selectedColor: Vx.gray500,
+            onTap: () {},
           ),
           ListTile(
-            title: Text("Item 2"),
-            trailing: Icon(Icons.arrow_forward),
+            title: Text("Rate Us"),
+            leading: Icon(
+              Icons.star,
+              color: Vx.yellow600,
+              size: Collection.diagonal * 0.045,
+            ),
+            selectedColor: Vx.black,
+            onTap: () {},
+          ),
+          ListTile(
+            title: Text("Contact Us"),
+            leading: Icon(Icons.contact_support,
+                color: Colors.black, size: Collection.diagonal * 0.04),
+            onTap: () {},
+          ),
+          ListTile(
+            title: Text("About Us"),
+            leading: Icon(Icons.info_outline,
+                color: Colors.black, size: Collection.diagonal * 0.04),
+            onTap: () {},
           ),
         ],
       ),
