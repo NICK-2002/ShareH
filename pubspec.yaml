@@ -9,6 +9,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: 4.6.5
   velocity_x: ^3.6.0
+  flutter_launcher_icons: ^0.10.0
   flutter: 
     sdk: flutter
 
@@ -17,6 +18,17 @@ dev_dependencies:
   flutter_test: 
     sdk: flutter
 
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/applogo.png"
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/icon/background.png"
+  
+  
+
 flutter: 
   uses-material-design: true
+  assets:
+    - assests/icon/
 
