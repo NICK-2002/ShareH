@@ -12,7 +12,7 @@ class SplashController extends GetxController {
     super.onInit();
     Timer(
         Duration(seconds: 5),
-        () => Get.toNamed(Routes.HOME));
+        () => Get.offAllNamed(Routes.HOME));
   }
 
   @override

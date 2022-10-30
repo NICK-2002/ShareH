@@ -9,6 +9,7 @@ void main() {
     GetMaterialApp(
       title: "Application",
       debugShowCheckedModeBanner: false,
+      defaultTransition: Transition.fadeIn,
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
     ),
