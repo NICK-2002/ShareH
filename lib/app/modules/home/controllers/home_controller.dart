@@ -1,9 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
   //TODO: Implement HomeController
 
-  final count = 0.obs;
+  var scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   void onInit() {
     super.onInit();
@@ -18,6 +19,8 @@ class HomeController extends GetxController {
   void onClose() {
     super.onClose();
   }
+  void openDrawer() {
+      scaffoldKey.currentState!.openDrawer();
+  }
 
-  void increment() => count.value++;
 }
