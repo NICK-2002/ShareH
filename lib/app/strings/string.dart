@@ -2,6 +2,7 @@ import 'dart:core';
 
 class Strings {
   Strings._();
+  
   // assests related strings
   static String avatar1 = "assets/avatar/avatar5.png";
 
