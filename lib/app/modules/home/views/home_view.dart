@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:share_h/app/data/collection.dart';
 import 'package:share_h/app/routes/app_pages.dart';
+import 'package:share_h/app/strings/string.dart';
 import 'package:share_h/app/widget/drawer.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -56,9 +57,9 @@ class HomeView extends GetView<HomeController> {
                 child: Padding(
                   padding: EdgeInsets.only(
                       top: MediaQuery.of(context).size.height * 0.07),
-                  child: const Text(
-                    "ShareH",
-                    style: TextStyle(
+                  child: Text(
+                    Strings.app_Name,
+                    style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 21),
@@ -71,8 +72,8 @@ class HomeView extends GetView<HomeController> {
                 child: Padding(
                   padding: EdgeInsets.only(
                       top: MediaQuery.of(context).size.height * 0.13),
-                  child: const Text(
-                    "Quickly Share & Receive Files",
+                  child: Text(
+                    Strings.app_Moto,
                     style: TextStyle(color: Colors.white, fontSize: 16),
                     textAlign: TextAlign.center,
                   ),
@@ -194,7 +195,7 @@ class HomeView extends GetView<HomeController> {
                                     iconSize:
                                         MediaQuery.of(context).size.height *
                                             0.05),
-                                "History".text.make(),
+                                Strings.history.text.make(),
                               ],
                             ),
                           ),
@@ -216,7 +217,7 @@ class HomeView extends GetView<HomeController> {
                                 iconSize:
                                     MediaQuery.of(context).size.height * 0.05,
                               ),
-                              "Storage Location".text.make(),
+                              Strings.storage_Location.text.make(),
                             ],
                           ),
                         )

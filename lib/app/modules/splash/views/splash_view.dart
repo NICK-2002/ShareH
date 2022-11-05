@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:share_h/app/data/collection.dart';
+import 'package:share_h/app/strings/string.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../controllers/splash_controller.dart';
@@ -40,9 +41,9 @@ class SplashView extends GetView<SplashController> {
                           color: Colors.white,
                           size: Collection.diagonal * 0.2,
                         ),
-                        const Text(
-                          "ShareH",
-                          style: TextStyle(
+                         Text(
+                          Strings.app_Name,
+                          style: const TextStyle(
                               color: Colors.white,
                               fontSize: 42,
                               fontWeight: FontWeight.bold),
@@ -54,9 +55,9 @@ class SplashView extends GetView<SplashController> {
               ),
               Padding(
                 padding: EdgeInsets.only(top: Get.height * 0.6),
-                child: const Center(
-                    child: Text("Share File Instantly Like A Flash",
-                        style: TextStyle(
+                child:  Center(
+                    child: Text(Strings.app_Quotes,
+                        style: const TextStyle(
                             color: Vx.gray900,
                             fontSize: 18,
                             fontWeight: FontWeight.w300))),

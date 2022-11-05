@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:share_h/app/data/collection.dart';
 import 'package:share_h/app/routes/app_pages.dart';
+import 'package:share_h/app/strings/string.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class MyDrawer extends StatefulWidget {
@@ -50,18 +51,18 @@ class _MyDrawerState extends State<MyDrawer> {
                     InkWell(
                       onTap: () => Get.toNamed(Routes.EDIT_PROFILE),
                       splashColor: Vx.blue200,
-                      child: const CircleAvatar(
+                      child:  CircleAvatar(
                         radius: 50,
                         backgroundImage:
-                            AssetImage("assets/avatar/avatar5.png"),
+                            AssetImage(Strings.avatar1),
                       ),
                     ),
                     SizedBox(
                       height: Get.height * 0.012,
                     ),
-                    const Text(
-                      'UserName',
-                      style: TextStyle(
+                     Text(
+                      Strings.user_Name,
+                      style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w600,
                           fontSize: 18),
@@ -97,7 +98,7 @@ class _MyDrawerState extends State<MyDrawer> {
             onTap: () {},
           ),
           ListTile(
-            title: Text("Rate Us"),
+            title: Text(Strings.rate_Us),
             leading: Icon(
               Icons.star,
               color: Vx.yellow600,
@@ -107,13 +108,13 @@ class _MyDrawerState extends State<MyDrawer> {
             onTap: () {},
           ),
           ListTile(
-            title: Text("Contact Us"),
+            title: Text(Strings.contact_Us),
             leading: Icon(Icons.contact_support,
                 color: Colors.black, size: Collection.diagonal * 0.04),
             onTap: () {},
           ),
           ListTile(
-            title: Text("About Us"),
+            title: Text(Strings.about_Us),
             leading: Icon(Icons.info_outline,
                 color: Colors.black, size: Collection.diagonal * 0.04),
             onTap: () {},
