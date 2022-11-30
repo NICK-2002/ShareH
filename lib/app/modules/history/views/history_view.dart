@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:share_h/app/widget/circleview.dart';
 
 import '../controllers/history_controller.dart';
 
@@ -14,11 +15,17 @@ class HistoryView extends GetView<HistoryController> {
         centerTitle: true,
       ),
       body: Center(
-        child: Text(
-          'HistoryView is working',
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
+          child: CircleView(
+              height: 250,
+              width: 250,
+              fillColor: Colors.orange,
+              borderColor: Colors.greenAccent,
+              child: Image.asset(
+                "assets/avatar/avatar2.png",
+                height: 250,
+                width: 250,
+                fit: BoxFit.none,
+              ))),
     );
   }
 }
