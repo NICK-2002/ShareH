@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:nearby_connections/nearby_connections.dart';
 import 'package:ripple_animation/ripple_animation.dart';
 import 'package:share_h/app/strings/string.dart';
 import 'package:share_h/app/widget/textview.dart';
@@ -62,7 +63,9 @@ class ConnectionPageView extends GetView<ConnectionPageController> {
                         color: Colors.white,
                         size: 25,
                       ),
-                      onPressed: () => Get.back(),
+                      onPressed: () {
+                        controller.back();
+                      },
                     ),
                     Center(
                       child: TextView(
@@ -81,27 +84,36 @@ class ConnectionPageView extends GetView<ConnectionPageController> {
             ),
           ),
           Center(
-            child: RippleAnimation(
-              color: Vx.gray100,
-              duration: Duration(seconds: 3),
-              ripplesCount: 5,
-              minRadius: Get.width * 0.21,
-              repeat: true,
-              child: CircleAvatar(
-                backgroundColor: Colors.white,
-                radius: 50,
-                child: Center(
-                  child: Icon(
-                    controller.pageName == 'Sender'
-                        ? CupertinoIcons.paperplane_fill
-                        : CupertinoIcons.tray_arrow_down_fill,
-                    color: const Color.fromARGB(255, 5, 79, 205),
-                    size: 48,
-                  ),
-                ),
-              ),
-            ),
-          )
+              child: controller.showImageButton == false &&
+                      controller.startDiscovering == false
+                  ? RippleAnimation(
+                      color: Vx.gray100,
+                      duration: Duration(seconds: 3),
+                      ripplesCount: 5,
+                      minRadius: Get.width * 0.21,
+                      repeat: true,
+                      child: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        radius: 50,
+                        child: Center(
+                          child: Icon(
+                            controller.pageName == 'Sender'
+                                ? CupertinoIcons.paperplane_fill
+                                : CupertinoIcons.tray_arrow_down_fill,
+                            color: const Color.fromARGB(255, 5, 79, 205),
+                            size: 48,
+                          ),
+                        ),
+                      ),
+                    )
+                  : controller.showImageButton == false
+                      ? ElevatedButton(
+                          onPressed: () {
+                            controller.openImage();
+                          },
+                          child: Text("Image Picker"))
+                      : ElevatedButton(
+                          onPressed: () {}, child: Text("Start Discover")))
         ],
       ));
     });
