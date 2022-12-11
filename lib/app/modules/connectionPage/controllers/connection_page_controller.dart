@@ -3,12 +3,12 @@ import 'package:get/get.dart';
 class ConnectionPageController extends GetxController {
   //TODO: Implement ConnectionPageController
   dynamic argumentData = Get.arguments;
-  String page = "";
+  String pageName = "";
   final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
-    page = argumentData[0];
+    pageName = argumentData[0];
   }
 
   @override
