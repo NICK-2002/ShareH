@@ -18,12 +18,7 @@ class ConnectionPageController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    pageName = argumentData[0];
-    if (pageName == "Sender") {
-      showImageButton = true;
-    } else {
-      startDiscovering = true;
-    }
+    pageName = argumentData[0]; 
   }
 
   @override
