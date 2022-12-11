@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:share_h/app/data/collection.dart';
+import 'package:share_h/app/modules/connectionPage/views/connection_page_view.dart';
 import 'package:share_h/app/routes/app_pages.dart';
 import 'package:share_h/app/strings/string.dart';
 import 'package:share_h/app/widget/drawer.dart';
@@ -91,6 +92,7 @@ class HomeView extends GetView<HomeController> {
                       //  ini();
                       //  Get.to(() => SenderView(a: 1));
                       //  --------------------------------------------------
+                      Get.toNamed(Routes.CONNECTION_PAGE,arguments: ['Sender']);
                     },
                     child: Container(
                       height: MediaQuery.of(context).size.height * 0.13,
@@ -137,6 +139,7 @@ class HomeView extends GetView<HomeController> {
                       //            "External Storage permissions not granted :(")));
                       //  }
                       //  ------------------------------------------------------------------------
+                      Get.toNamed(Routes.CONNECTION_PAGE,arguments: ['Receive']);
                     },
                     child: Container(
                       height: MediaQuery.of(context).size.height * 0.13,

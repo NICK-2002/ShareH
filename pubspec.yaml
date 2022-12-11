@@ -11,6 +11,7 @@ dependencies:
   velocity_x: ^3.6.0
   flutter_launcher_icons: ^0.10.0
   device_info_plus: ^8.0.0
+  nearby_connections: ^3.2.0
   flutter: 
     sdk: flutter
 

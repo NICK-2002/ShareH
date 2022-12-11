@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/connectionPage/bindings/connection_page_binding.dart';
+import '../modules/connectionPage/views/connection_page_view.dart';
 import '../modules/edit_profile/bindings/edit_profile_binding.dart';
 import '../modules/edit_profile/views/edit_profile_view.dart';
 import '../modules/history/bindings/history_binding.dart';
@@ -36,6 +38,11 @@ class AppPages {
       name: _Paths.EDIT_PROFILE,
       page: () => const EditProfileView(),
       binding: EditProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.CONNECTION_PAGE,
+      page: () => const ConnectionPageView(),
+      binding: ConnectionPageBinding(),
     ),
   ];
 }
