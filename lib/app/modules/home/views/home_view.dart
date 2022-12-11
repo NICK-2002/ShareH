@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:nearby_connections/nearby_connections.dart';
 import 'package:share_h/app/data/collection.dart';
 import 'package:share_h/app/modules/connectionPage/views/connection_page_view.dart';
 import 'package:share_h/app/routes/app_pages.dart';
@@ -89,10 +90,10 @@ class HomeView extends GetView<HomeController> {
                     borderRadius: BorderRadius.all(Radius.circular(
                         MediaQuery.of(context).size.height * 0.13)),
                     onTap: () async {
-                      //  ini();
-                      //  Get.to(() => SenderView(a: 1));
-                      //  --------------------------------------------------
-                      Get.toNamed(Routes.CONNECTION_PAGE,arguments: ['Sender']);
+                      controller.ini();
+                      Get.toNamed(Routes.CONNECTION_PAGE,
+                          arguments: ['Sender']);
+                      controller.sender();
                     },
                     child: Container(
                       height: MediaQuery.of(context).size.height * 0.13,
@@ -130,16 +131,16 @@ class HomeView extends GetView<HomeController> {
                     borderRadius: BorderRadius.all(Radius.circular(
                         MediaQuery.of(context).size.height * 0.13)),
                     onTap: () async {
-                      //  if (await Nearby().askLocationPermission()) {
-                      //    ini();
-                      //    Get.to(() => SenderView(a: 0));
-                      //  } else {
-                      //    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                      //        content: Text(
-                      //            "External Storage permissions not granted :(")));
-                      //  }
-                      //  ------------------------------------------------------------------------
-                      Get.toNamed(Routes.CONNECTION_PAGE,arguments: ['Receive']);
+                      if (await Nearby().askLocationPermission()) {
+                        controller.ini();
+                        Get.toNamed(Routes.CONNECTION_PAGE,
+                            arguments: ['Receive']);
+                        controller.receiver();
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                            content: Text(
+                                "External Storage permissions not granted :(")));
+                      }
                     },
                     child: Container(
                       height: MediaQuery.of(context).size.height * 0.13,
