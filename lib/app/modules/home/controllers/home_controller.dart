@@ -24,6 +24,9 @@ class HomeController extends GetxController {
   Map<int, String> map = Map();
   String? tempFileUri;
   bool hshowImageButton = false;
+  double a = 0;
+  double b = 0;
+  double c = 0;
 
   @override
   Future<void> onInit() async {
@@ -61,6 +64,14 @@ class HomeController extends GetxController {
   pageSet(int value) {
     Senderview = value;
     update();
+  }
+
+  void change(double f) {
+    b = f;
+    c = (b / a) * 100;
+    update();
+
+    print(c);
   }
 
   Future<void> sender() async {
@@ -162,8 +173,10 @@ class HomeController extends GetxController {
                 onPressed: () {
                   Navigator.pop(Get.context!);
                   Senderview == 1
-                      ? Get.toNamed(Routes.SEND_RECEIVE_PAGE, arguments: ['Sender'])
-                      : Get.toNamed(Routes.SEND_RECEIVE_PAGE, arguments: ['Receiver']);
+                      ? Get.toNamed(Routes.SEND_RECEIVE_PAGE,
+                          arguments: ['Sender'])
+                      : Get.toNamed(Routes.SEND_RECEIVE_PAGE,
+                          arguments: ['Receiver']);
                   //imageButtonshow();
                   endpointMap[id] = info;
                   update();
@@ -197,8 +210,11 @@ class HomeController extends GetxController {
                       }
                     },
                     onPayloadTransferUpdate: (endid, payloadTransferUpdate) {
+                      a = payloadTransferUpdate.totalBytes.toDouble();
                       if (payloadTransferUpdate.status ==
                           PayloadStatus.IN_PROGRESS) {
+                        change(
+                            payloadTransferUpdate.bytesTransferred.toDouble());
                         print(payloadTransferUpdate.bytesTransferred);
                       } else if (payloadTransferUpdate.status ==
                           PayloadStatus.FAILURE) {

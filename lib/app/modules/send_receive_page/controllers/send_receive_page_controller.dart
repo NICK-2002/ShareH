@@ -7,11 +7,12 @@ import 'package:share_h/app/routes/app_pages.dart';
 
 class SendReceivePageController extends GetxController {
   //TODO: Implement SendReceivePageController
-dynamic argumentData = Get.arguments;
+  dynamic argumentData = Get.arguments;
   String pageName = "";
   final home_controller = Get.put(HomeController());
   final count = 0.obs;
   String? tempFileUri;
+  double c=0;
   @override
   void onInit() {
     super.onInit();
@@ -21,12 +22,14 @@ dynamic argumentData = Get.arguments;
   @override
   void onReady() {
     super.onReady();
+    c = Get.find<HomeController>().c ;
   }
 
   @override
   void onClose() {
     super.onClose();
   }
+
   void back() async {
     Get.offAllNamed(Routes.HOME);
     await Nearby().stopAdvertising();

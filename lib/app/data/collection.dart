@@ -9,7 +9,6 @@ class Collection {
       sqrt((Get.height * Get.height) + (Get.width * Get.width));
 }
 
-bool showFiletransferButton = false;
 
 
 // class _MyHomePageState extends State<MyHomePage> {
