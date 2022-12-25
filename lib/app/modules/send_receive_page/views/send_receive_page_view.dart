@@ -81,11 +81,21 @@ class SendReceivePageView extends GetView<SendReceivePageController> {
           ),
           Center(
               child: controller.pageName == "Sender"
-                  ? ElevatedButton(
-                      onPressed: () {
-                        controller.openImage();
-                      },
-                      child: Text("Image Picker"))
+                  ? Column(
+                    children: [
+                      ElevatedButton(
+                          onPressed: () {
+                            controller.openImage(0);
+                          },
+                          child: Text("Image Picker")),
+                          SizedBox(height: 20,),
+                          ElevatedButton(
+                          onPressed: () {
+                            controller.openImage(1);
+                          },
+                          child: Text("video Picker")),
+                    ],
+                  )
                   : LinearProgressIndicator(
                       value: (controller.c) / 100,
                     )),
