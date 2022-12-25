@@ -90,6 +90,7 @@ class HomeView extends GetView<HomeController> {
                     borderRadius: BorderRadius.all(Radius.circular(
                         MediaQuery.of(context).size.height * 0.13)),
                     onTap: () async {
+                      controller.pageSet(1);
                       controller.ini();
                       Get.toNamed(Routes.CONNECTION_PAGE,
                           arguments: ['Sender']);
@@ -131,6 +132,7 @@ class HomeView extends GetView<HomeController> {
                     borderRadius: BorderRadius.all(Radius.circular(
                         MediaQuery.of(context).size.height * 0.13)),
                     onTap: () async {
+                      controller.pageSet(0);
                       if (await Nearby().askLocationPermission()) {
                         controller.ini();
                         Get.toNamed(Routes.CONNECTION_PAGE,

@@ -19,6 +19,7 @@ class HomeController extends GetxController {
   var scaffoldKey = GlobalKey<ScaffoldState>();
   final String userName = Random().nextInt(10000).toString();
   final Strategy strategy = Strategy.P2P_STAR;
+  int Senderview = 0;
   Map<String, ConnectionInfo> endpointMap = Map();
   Map<int, String> map = Map();
   String? tempFileUri;
@@ -55,6 +56,11 @@ class HomeController extends GetxController {
 
   void openDrawer() {
     scaffoldKey.currentState!.openDrawer();
+  }
+
+  pageSet(int value) {
+    Senderview = value;
+    update();
   }
 
   Future<void> sender() async {
@@ -155,7 +161,9 @@ class HomeController extends GetxController {
                 child: Text("Accept Connection"),
                 onPressed: () {
                   Navigator.pop(Get.context!);
-                  Get.toNamed(Routes.HISTORY);
+                  Senderview == 1
+                      ? Get.toNamed(Routes.SEND_RECEIVE_PAGE, arguments: ['Sender'])
+                      : Get.toNamed(Routes.SEND_RECEIVE_PAGE, arguments: ['Receiver']);
                   //imageButtonshow();
                   endpointMap[id] = info;
                   update();

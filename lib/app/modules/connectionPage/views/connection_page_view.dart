@@ -85,9 +85,7 @@ class ConnectionPageView extends GetView<ConnectionPageController> {
             ),
           ),
           Center(
-              child: controller.showImageButton == false &&
-                      controller.startDiscovering == false
-                  ? RippleAnimation(
+              child:RippleAnimation(
                       color: Vx.gray100,
                       duration: Duration(seconds: 3),
                       ripplesCount: 5,
@@ -107,14 +105,7 @@ class ConnectionPageView extends GetView<ConnectionPageController> {
                         ),
                       ),
                     )
-                  : controller.showImageButton == true
-                      ? ElevatedButton(
-                          onPressed: () {
-                            controller.openImage();
-                          },
-                          child: Text("Image Picker"))
-                      : ElevatedButton(
-                          onPressed: () {}, child: Text("Start Discover"))),
+                   ),
         ],
       ));
     });
