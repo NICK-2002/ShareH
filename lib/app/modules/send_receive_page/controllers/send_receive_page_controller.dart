@@ -39,7 +39,7 @@ class SendReceivePageController extends GetxController {
     // update();
   }
 
-  Future<void> openImage() async {
+  Future<void> openImage(int img) async {
     {
       PickedFile? file =
           await ImagePicker().getImage(source: ImageSource.gallery);
