@@ -8,6 +8,8 @@ import '../modules/history/bindings/history_binding.dart';
 import '../modules/history/views/history_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/send_receive_page/bindings/send_receive_page_binding.dart';
+import '../modules/send_receive_page/views/send_receive_page_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
 
@@ -43,6 +45,11 @@ class AppPages {
       name: _Paths.CONNECTION_PAGE,
       page: () => const ConnectionPageView(),
       binding: ConnectionPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.SEND_RECEIVE_PAGE,
+      page: () => const SendReceivePageView(),
+      binding: SendReceivePageBinding(),
     ),
   ];
 }

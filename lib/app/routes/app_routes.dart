@@ -8,6 +8,7 @@ abstract class Routes {
   static const SPLASH = _Paths.SPLASH;
   static const EDIT_PROFILE = _Paths.EDIT_PROFILE;
   static const CONNECTION_PAGE = _Paths.CONNECTION_PAGE;
+  static const SEND_RECEIVE_PAGE = _Paths.SEND_RECEIVE_PAGE;
 }
 
 abstract class _Paths {
@@ -17,4 +18,5 @@ abstract class _Paths {
   static const SPLASH = '/splash';
   static const EDIT_PROFILE = '/edit-profile';
   static const CONNECTION_PAGE = '/connection-page';
+  static const SEND_RECEIVE_PAGE = '/send-receive-page';
 }
