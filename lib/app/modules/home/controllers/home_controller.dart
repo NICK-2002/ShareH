@@ -34,10 +34,14 @@ class HomeController extends GetxController {
     checkPermissions();
   }
 
-  void ini() {
+  Future<void> ini() async {
     Nearby().askExternalStoragePermission();
     Nearby().askLocationAndExternalStoragePermission();
-    Nearby().askBluetoothPermission();
+    var status = await Permission.manageExternalStorage.status;
+   if (!status.isGranted) {
+     await Permission.manageExternalStorage.request();
+   }
+
   }
 
   void checkPermissions() async {
@@ -258,11 +262,34 @@ class HomeController extends GetxController {
   }
 
   Future<bool> moveFile(String uri, String fileName) async {
-    String parentDir = (await getExternalStorageDirectory())!.absolute.path;
-    final b =
-        await Nearby().copyFileAndDeleteOriginal(uri, '$parentDir/$fileName');
+    // String parentDir = (await getExternalStorageDirectory())!.absolute.path;
+    Directory? parentDir = (await getExternalStorageDirectory());
+    String newPath = "";
+    print(parentDir);
+    List<String> paths = parentDir!.path.split("/");
+    for (int x = 1; x < paths.length; x++) {
+      String folder = paths[x];
+      if (folder != "Android") {
+        newPath += "/" + folder;
+      } else {
+        break;
+      }
+    }
+    newPath = newPath + "/ShareH";
+    parentDir = Directory(newPath);
+    if (!await parentDir.exists()) {
+      await parentDir.create(recursive: true);
+    }
+    final b = await Nearby()
+        .copyFileAndDeleteOriginal(uri, '${parentDir.path}/$fileName');
 
     showSnackbar("Moved file:" + b.toString());
+  // Database:-
+  //   final data = User(
+  //      name: fileName,
+  //      location: '${parentDir.path}/$fileName',
+  //      createdTime: DateTime.now());
+  //  await UserInfoBase.instance.insertInUserTable(data);
     return b;
   }
 

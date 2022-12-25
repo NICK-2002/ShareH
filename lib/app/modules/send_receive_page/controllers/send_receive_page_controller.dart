@@ -22,7 +22,7 @@ class SendReceivePageController extends GetxController {
   @override
   void onReady() {
     super.onReady();
-    c = Get.find<HomeController>().c ;
+    //c = Get.find<HomeController>().c ;
   }
 
   @override
