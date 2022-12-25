@@ -20,6 +20,7 @@ class HomeController extends GetxController {
   Map<String, ConnectionInfo> endpointMap = Map();
   Map<int, String> map = Map();
   String? tempFileUri;
+  bool hshowImageButton = false;
 
   @override
   Future<void> onInit() async {
@@ -152,7 +153,7 @@ class HomeController extends GetxController {
                 child: Text("Accept Connection"),
                 onPressed: () {
                   Navigator.pop(Get.context!);
-
+                  hshowImageButton = true;
                   endpointMap[id] = info;
                   update();
                   Nearby().acceptConnection(
@@ -201,6 +202,7 @@ class HomeController extends GetxController {
                           //rename the file now
                           String name = map[payloadTransferUpdate.id]!;
                           moveFile(tempFileUri!, name);
+                          print(name + "-------------------------");
                         } else {
                           //bytes not received till yet
                           map[payloadTransferUpdate.id] = "";
@@ -235,5 +237,10 @@ class HomeController extends GetxController {
 
     showSnackbar("Moved file:" + b.toString());
     return b;
+  }
+
+  imageButtonshow() {
+    hshowImageButton = true;
+    update();
   }
 }

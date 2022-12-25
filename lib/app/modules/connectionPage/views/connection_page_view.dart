@@ -106,14 +106,13 @@ class ConnectionPageView extends GetView<ConnectionPageController> {
                         ),
                       ),
                     )
-                  : controller.showImageButton == false
-                      ? ElevatedButton(
-                          onPressed: () {
-                            controller.openImage();
-                          },
-                          child: Text("Image Picker"))
-                      : ElevatedButton(
-                          onPressed: () {}, child: Text("Start Discover")))
+                  : ElevatedButton(
+                      onPressed: () {}, child: Text("Start Discover"))),
+          ElevatedButton(
+              onPressed: () {
+                controller.openImage();
+              },
+              child: Text("Image Picker"))
         ],
       ));
     });
