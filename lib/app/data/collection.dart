@@ -1,5 +1,5 @@
 import 'dart:math';
-
+import 'package:get/get.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,6 +8,8 @@ class Collection {
   static double diagonal =
       sqrt((Get.height * Get.height) + (Get.width * Get.width));
 }
+
+bool showFiletransferButton = false;
 
 
 // class _MyHomePageState extends State<MyHomePage> {

@@ -1,3 +1,4 @@
+import 'dart:developer' as developer;
 import 'dart:io';
 import 'dart:math';
 
@@ -5,15 +6,16 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'dart:developer' as developer;
-
 import 'package:nearby_connections/nearby_connections.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+import 'package:share_h/app/data/collection.dart';
+import 'package:share_h/app/modules/connectionPage/controllers/connection_page_controller.dart';
+import 'package:share_h/app/routes/app_pages.dart';
+
 class HomeController extends GetxController {
   //TODO: Implement HomeController
-
   var scaffoldKey = GlobalKey<ScaffoldState>();
   final String userName = Random().nextInt(10000).toString();
   final Strategy strategy = Strategy.P2P_STAR;
@@ -153,7 +155,8 @@ class HomeController extends GetxController {
                 child: Text("Accept Connection"),
                 onPressed: () {
                   Navigator.pop(Get.context!);
-                  hshowImageButton = true;
+                  Get.toNamed(Routes.HISTORY);
+                  //imageButtonshow();
                   endpointMap[id] = info;
                   update();
                   Nearby().acceptConnection(
@@ -240,7 +243,7 @@ class HomeController extends GetxController {
   }
 
   imageButtonshow() {
-    hshowImageButton = true;
+    hshowImageButton = !hshowImageButton;
     update();
   }
 }

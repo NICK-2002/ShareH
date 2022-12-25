@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nearby_connections/nearby_connections.dart';
 import 'package:ripple_animation/ripple_animation.dart';
+import 'package:share_h/app/data/collection.dart';
 import 'package:share_h/app/strings/string.dart';
 import 'package:share_h/app/widget/textview.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -106,13 +107,14 @@ class ConnectionPageView extends GetView<ConnectionPageController> {
                         ),
                       ),
                     )
-                  : ElevatedButton(
-                      onPressed: () {}, child: Text("Start Discover"))),
-          ElevatedButton(
-              onPressed: () {
-                controller.openImage();
-              },
-              child: Text("Image Picker"))
+                  : controller.showImageButton == true
+                      ? ElevatedButton(
+                          onPressed: () {
+                            controller.openImage();
+                          },
+                          child: Text("Image Picker"))
+                      : ElevatedButton(
+                          onPressed: () {}, child: Text("Start Discover"))),
         ],
       ));
     });

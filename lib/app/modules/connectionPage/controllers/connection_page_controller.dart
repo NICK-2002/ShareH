@@ -13,8 +13,9 @@ class ConnectionPageController extends GetxController {
   dynamic argumentData = Get.arguments;
   String pageName = "";
   final home_controller = Get.put(HomeController());
+  HomeController cnt = Get.find();
   String? tempFileUri; //reference to the file currently being transferred
-  
+
   bool showImageButton = false;
   bool startDiscovering = false;
 
@@ -61,5 +62,10 @@ class ConnectionPageController extends GetxController {
       }
     }
     ;
+  }
+
+  imageButtonshow(bool check) {
+    showImageButton = check;
+    update();
   }
 }
