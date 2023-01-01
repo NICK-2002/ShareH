@@ -8,6 +8,8 @@ import '../modules/history/bindings/history_binding.dart';
 import '../modules/history/views/history_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/menuPage/bindings/menu_page_binding.dart';
+import '../modules/menuPage/views/menu_page_view.dart';
 import '../modules/send_receive_page/bindings/send_receive_page_binding.dart';
 import '../modules/send_receive_page/views/send_receive_page_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
@@ -50,6 +52,11 @@ class AppPages {
       name: _Paths.SEND_RECEIVE_PAGE,
       page: () => const SendReceivePageView(),
       binding: SendReceivePageBinding(),
+    ),
+    GetPage(
+      name: _Paths.MENU_PAGE,
+      page: () => const MenuPageView(),
+      binding: MenuPageBinding(),
     ),
   ];
 }
