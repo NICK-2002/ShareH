@@ -49,7 +49,7 @@ class HomeView extends GetView<HomeController> {
                   child: IconButton(
                     icon: Icon(CupertinoIcons.line_horizontal_3),
                     onPressed: () async {
-                      controller.openDrawer();
+                      Get.toNamed(Routes.MENU_PAGE);
                     },
                     iconSize: 29,
                     color: Colors.white,

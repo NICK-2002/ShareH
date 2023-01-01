@@ -1,12 +1,14 @@
 import 'package:get/get.dart';
+import 'package:share_h/app/data/collection.dart';
 
 class MenuPageController extends GetxController {
   //TODO: Implement MenuPageController
-
-  final count = 0.obs;
+  String username = "";
+  String url = "";
   @override
   void onInit() {
     super.onInit();
+    updateDetails();
   }
 
   @override
@@ -19,5 +21,9 @@ class MenuPageController extends GetxController {
     super.onClose();
   }
 
-  void increment() => count.value++;
+  updateDetails() {
+    username = getUserName() ?? "ShareH";
+    url = getImageurl() ?? defualtimg;
+    update();
+  }
 }
