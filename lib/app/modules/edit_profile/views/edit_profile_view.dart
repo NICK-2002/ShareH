@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:share_h/app/routes/app_pages.dart';
 import 'package:share_h/app/strings/string.dart';
 import 'package:share_h/app/widget/textview.dart';
 
@@ -43,7 +44,7 @@ class EditProfileView extends GetView<EditProfileController> {
                           size: 25,
                         ),
                         onPressed: () {
-                          Get.back();
+                          Get.offNamed(Routes.MENU_PAGE);
                         },
                       ),
                       Center(

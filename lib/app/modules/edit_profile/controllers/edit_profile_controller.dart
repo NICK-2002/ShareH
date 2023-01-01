@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:share_h/app/data/collection.dart';
+import 'package:share_h/app/modules/menuPage/controllers/menu_page_controller.dart';
 import 'package:share_h/app/strings/string.dart';
 
 class EditProfileController extends GetxController {
@@ -48,6 +49,7 @@ class EditProfileController extends GetxController {
     setUserName(name);
     currentAvatar = url;
     userName.text = name;
+    Get.find<MenuPageController>().updateDetails();
     Get.snackbar("Your Profile is Updated", "Your Profile is Updated");
     update();
   }

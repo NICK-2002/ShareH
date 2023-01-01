@@ -20,7 +20,6 @@ class MenuPageView extends GetView<MenuPageController> {
           child: ListView(
             children: <Widget>[
               Container(
-                // height: Get.height * 0.25,
                 width: Get.width * 0.9,
                 decoration: const BoxDecoration(
                     gradient: LinearGradient(
@@ -45,7 +44,7 @@ class MenuPageView extends GetView<MenuPageController> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             IconButton(
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.arrow_back_ios_new_outlined,
                                 color: Colors.white,
                                 size: 25,

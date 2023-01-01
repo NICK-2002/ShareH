@@ -7,8 +7,8 @@ class MenuPageController extends GetxController {
   String url = "";
   @override
   void onInit() {
-    super.onInit();
     updateDetails();
+    super.onInit();
   }
 
   @override
