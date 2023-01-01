@@ -51,16 +51,16 @@ class _MyDrawerState extends State<MyDrawer> {
                     InkWell(
                       onTap: () => Get.toNamed(Routes.EDIT_PROFILE),
                       splashColor: Vx.blue200,
-                      child:  CircleAvatar(
+                      child: CircleAvatar(
                         radius: 50,
                         backgroundImage:
-                            AssetImage(Strings.avatar1),
+                            AssetImage(getImageurl() ?? defualtimg),
                       ),
                     ),
                     SizedBox(
                       height: Get.height * 0.012,
                     ),
-                     Text(
+                    Text(
                       Strings.user_Name,
                       style: const TextStyle(
                           color: Colors.white,
@@ -73,9 +73,9 @@ class _MyDrawerState extends State<MyDrawer> {
                     InkWell(
                       onTap: () => Get.toNamed(Routes.EDIT_PROFILE),
                       splashColor: Vx.blue200,
-                      child: const Text(
-                        'nikhil',
-                        style: TextStyle(
+                      child: Text(
+                        getUserName() ?? "ShareH",
+                        style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w400,
                             fontSize: 16),

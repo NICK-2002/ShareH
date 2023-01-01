@@ -3,8 +3,7 @@ import 'dart:core';
 class Strings {
   Strings._();
   
-  // assests related strings
-  static String avatar1 = "assets/avatar/avatar5.png";
+
 
   // title related string
   static String app_Name = "ShareH";
@@ -17,4 +16,6 @@ class Strings {
   static String rate_Us = "Rate Us";
   static String contact_Us = "Contact Us";
   static String about_Us = "About Us";
+  static String update = "Update";
+  static String upadateprofile = "Update Profile";
 }
