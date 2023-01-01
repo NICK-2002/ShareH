@@ -30,6 +30,7 @@ class HomeController extends GetxController {
 
   @override
   Future<void> onInit() async {
+    
     super.onInit();
     checkPermissions();
   }

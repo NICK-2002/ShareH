@@ -18,6 +18,7 @@ dependencies:
   path_provider: ^2.0.11
   sqflite: ^2.2.2
   file_picker: ^5.2.4
+  shared_preferences: ^2.0.15
   flutter: 
     sdk: flutter
 
