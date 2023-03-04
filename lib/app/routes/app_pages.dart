@@ -14,6 +14,8 @@ import '../modules/send_receive_page/bindings/send_receive_page_binding.dart';
 import '../modules/send_receive_page/views/send_receive_page_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
+import '../modules/storage_location/bindings/storage_location_binding.dart';
+import '../modules/storage_location/views/storage_location_view.dart';
 
 part 'app_routes.dart';
 
@@ -57,6 +59,11 @@ class AppPages {
       name: _Paths.MENU_PAGE,
       page: () => const MenuPageView(),
       binding: MenuPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.STORAGE_LOCATION,
+      page: () => const StorageLocationView(),
+      binding: StorageLocationBinding(),
     ),
   ];
 }

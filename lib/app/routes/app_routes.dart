@@ -10,6 +10,7 @@ abstract class Routes {
   static const CONNECTION_PAGE = _Paths.CONNECTION_PAGE;
   static const SEND_RECEIVE_PAGE = _Paths.SEND_RECEIVE_PAGE;
   static const MENU_PAGE = _Paths.MENU_PAGE;
+  static const STORAGE_LOCATION = _Paths.STORAGE_LOCATION;
 }
 
 abstract class _Paths {
@@ -21,4 +22,5 @@ abstract class _Paths {
   static const CONNECTION_PAGE = '/connection-page';
   static const SEND_RECEIVE_PAGE = '/send-receive-page';
   static const MENU_PAGE = '/menu-page';
+  static const STORAGE_LOCATION = '/storage-location';
 }
