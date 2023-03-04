@@ -11,6 +11,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import 'package:share_h/app/data/collection.dart';
+import 'package:share_h/app/data/fileTransfer_Database.dart';
+import 'package:share_h/app/model/fileDetails.dart';
 import 'package:share_h/app/modules/connectionPage/controllers/connection_page_controller.dart';
 import 'package:share_h/app/routes/app_pages.dart';
 
@@ -282,14 +284,12 @@ class HomeController extends GetxController {
     }
     final b = await Nearby()
         .copyFileAndDeleteOriginal(uri, '${parentDir.path}/$fileName');
-    print("$b---------------------");
     showSnackbar("Moved file:" + b.toString());
-    // Database:-
-    //   final data = User(
-    //      name: fileName,
-    //      location: '${parentDir.path}/$fileName',
-    //      createdTime: DateTime.now());
-    //  await UserInfoBase.instance.insertInUserTable(data);
+      final data = FileDetails(
+        fileName: fileName,
+         location: '${parentDir.path}/$fileName',
+         dateTime: DateTime.now());
+     await FileTransferDatabase.instance.insertInUserTable(data);
     return b;
   }
 

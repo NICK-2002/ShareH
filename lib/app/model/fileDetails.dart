@@ -1,46 +1,35 @@
+import 'package:share_h/app/data/fileDetailAtrribute.dart';
+
 class FileDetails {
-  int? _id;
-  String? _fileName;
-  String? _loaction;
-  DateTime? _dateTime;
+  final int? id;
+  final String fileName;
+  final String location;
+  final DateTime dateTime;
 
-  FileDetails({int? id, String? fileName, String? loaction, DateTime? dateTime}) {
-    if (id != null) {
-      this._id = id;
-    }
-    if (fileName != null) {
-      this._fileName = fileName;
-    }
-    if (loaction != null) {
-      this._loaction = loaction;
-    }
-    if (dateTime != null) {
-      this._dateTime = dateTime;
-    }
-  }
+  FileDetails(
+      {this.id,
+      required this.fileName,
+      required this.location,
+      required this.dateTime});
 
-  int? get id => _id;
-  set id(int? id) => _id = id;
-  String get fileName => _fileName??"";
-  set fileName(String fileName) => _fileName = fileName;
-  String get loaction => _loaction??"";
-  set loaction(String loaction) => _loaction = loaction;
-  DateTime? get dateTime => _dateTime;
-  set dateTime(DateTime? dateTime) => _dateTime = dateTime;
+  FileDetails copy(
+          {int? id, String? filename, String? location, DateTime? dateTime}) =>
+      FileDetails(
+          id: id ?? this.id,
+          fileName: fileName ?? this.fileName,
+          location: location ?? this.location,
+          dateTime: dateTime ?? this.dateTime);
 
-  FileDetails.fromJson(Map<String, dynamic> json) {
-    _id = json['id'];
-    _fileName = json['FileName'];
-    _loaction = json['Loaction'];
-    _dateTime = json['DateTime'];
-  }
+  static FileDetails fromJson(Map<String, Object?> json) => FileDetails(
+      id: json[FileDetailAtrribute.id] as int?,
+      fileName: json[FileDetailAtrribute.fileName] as String,
+      location: json[FileDetailAtrribute.location] as String,
+      dateTime: DateTime.parse(json[FileDetailAtrribute.dateTime] as String));
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this._id;
-    data['FileName'] = this._fileName;
-    data['Loaction'] = this._loaction;
-    data['DateTime'] = this._dateTime;
-    return data;
-  }
+  Map<String, Object?> toJson() => {
+        FileDetailAtrribute.id: id,
+        FileDetailAtrribute.fileName: fileName,
+        FileDetailAtrribute.location: location,
+        FileDetailAtrribute.dateTime: dateTime.toIso8601String(),
+      };
 }

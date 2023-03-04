@@ -26,16 +26,17 @@ class FileTransferDatabase {
   }
 
   Future _createDB(Database db, int version) async {
-    final idType = 'INTEGER  PRIMARY KEY ';
+    final idType = 'INTEGER  PRIMARY KEY AUTOINCREMENT';
     final textType = 'TEXT NOT NULL';
     final pathType = 'TEXT';
+    final dateTime = 'DATETIME';
 
     await db.execute('''
-  CREATE TABLE ${FileDetailAtrribute.tableName} (
+  CREATE TABLE $tablename (
  ${FileDetailAtrribute.id} $idType,
- ${FileDetailAtrribute.fileName} $textType,
+ ${FileDetailAtrribute.fileName} $pathType,
  ${FileDetailAtrribute.location} $textType,
- ${FileDetailAtrribute.dateTime} $textType,
+ ${FileDetailAtrribute.dateTime} $textType
  )
   ''');
     print('user Info table created');
@@ -45,17 +46,17 @@ class FileTransferDatabase {
     final db = await instance.database;
     print('object insert for history Database-----------------------');
     final id =
-        await db.insert(FileDetailAtrribute.tableName, FileDetails().toJson());
-    return FileDetails(id: id);
+        await db.insert(tablename, user.toJson());
+    return user.copy(id: id);
   }
 
   Future<List<FileDetails>> readAllNotes() async {
     final db = await instance.database;
 
-    final orderBy = '${FileDetailAtrribute.time} ASC';
+    final orderBy = '${FileDetailAtrribute.dateTime} ASC';
 
     final result =
-        await db.query(FileDetailAtrribute.tableName, orderBy: orderBy);
+        await db.query(tablename, orderBy: orderBy);
 
     return result.map((json) => FileDetails.fromJson(json)).toList();
   }
@@ -64,12 +65,12 @@ class FileTransferDatabase {
     final db = await instance.database;
     print('object delete for user Information-----------------------');
     return await db.delete(
-      FileDetailAtrribute.tableName,
+      tablename,
       where: '${FileDetailAtrribute.id} = ?',
       whereArgs: [id],
     );
   }
-
+ 
   Future close() async {
     print('object close for user Information-----------------------');
     final db = await instance.database;
