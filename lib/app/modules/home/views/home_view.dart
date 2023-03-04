@@ -218,7 +218,9 @@ class HomeView extends GetView<HomeController> {
                           child: Column(
                             children: [
                               IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Get.toNamed(Routes.STORAGE_LOCATION);
+                                },
                                 icon: Icon(Icons.sd_storage),
                                 iconSize:
                                     MediaQuery.of(context).size.height * 0.05,

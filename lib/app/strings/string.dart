@@ -2,8 +2,6 @@ import 'dart:core';
 
 class Strings {
   Strings._();
-  
-
 
   // title related string
   static String app_Name = "ShareH";
@@ -18,4 +16,10 @@ class Strings {
   static String about_Us = "About Us";
   static String update = "Update";
   static String upadateprofile = "Update Profile";
+  static String storageLocation = "Storage Location";
+  static String video = "Videos";
+  static String audio = "Audio";
+  static String photos = "Photos";
+  static String file = "Files";
+  static String app = "Apps";
 }
