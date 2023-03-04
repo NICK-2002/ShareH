@@ -30,7 +30,6 @@ class HomeController extends GetxController {
 
   @override
   Future<void> onInit() async {
-    
     super.onInit();
     checkPermissions();
   }
@@ -39,10 +38,9 @@ class HomeController extends GetxController {
     Nearby().askExternalStoragePermission();
     Nearby().askLocationAndExternalStoragePermission();
     var status = await Permission.manageExternalStorage.status;
-   if (!status.isGranted) {
-     await Permission.manageExternalStorage.request();
-   }
-
+    if (!status.isGranted) {
+      await Permission.manageExternalStorage.request();
+    }
   }
 
   void checkPermissions() async {
@@ -278,19 +276,20 @@ class HomeController extends GetxController {
     }
     newPath = newPath + "/ShareH";
     parentDir = Directory(newPath);
+    print("-----------------$newPath--------$parentDir");
     if (!await parentDir.exists()) {
       await parentDir.create(recursive: true);
     }
     final b = await Nearby()
         .copyFileAndDeleteOriginal(uri, '${parentDir.path}/$fileName');
-
+    print("$b---------------------");
     showSnackbar("Moved file:" + b.toString());
-  // Database:-
-  //   final data = User(
-  //      name: fileName,
-  //      location: '${parentDir.path}/$fileName',
-  //      createdTime: DateTime.now());
-  //  await UserInfoBase.instance.insertInUserTable(data);
+    // Database:-
+    //   final data = User(
+    //      name: fileName,
+    //      location: '${parentDir.path}/$fileName',
+    //      createdTime: DateTime.now());
+    //  await UserInfoBase.instance.insertInUserTable(data);
     return b;
   }
 
