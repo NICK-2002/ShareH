@@ -11,6 +11,10 @@ abstract class Routes {
   static const SEND_RECEIVE_PAGE = _Paths.SEND_RECEIVE_PAGE;
   static const MENU_PAGE = _Paths.MENU_PAGE;
   static const STORAGE_LOCATION = _Paths.STORAGE_LOCATION;
+  static const AUDIO_HISTORY =  _Paths.AUDIO_HISTORY;
+  static const VIDEO_HISTORY =  _Paths.VIDEO_HISTORY;
+  static const FILES_HISTORY =  _Paths.FILES_HISTORY;
+  static const IMAGES_HISTORY = _Paths.IMAGES_HISTORY;
 }
 
 abstract class _Paths {
@@ -23,4 +27,8 @@ abstract class _Paths {
   static const SEND_RECEIVE_PAGE = '/send-receive-page';
   static const MENU_PAGE = '/menu-page';
   static const STORAGE_LOCATION = '/storage-location';
+  static const AUDIO_HISTORY = '/audio-history';
+  static const VIDEO_HISTORY = '/video-history';
+  static const FILES_HISTORY = '/files-history';
+  static const IMAGES_HISTORY = '/images-history';
 }

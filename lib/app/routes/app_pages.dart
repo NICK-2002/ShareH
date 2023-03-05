@@ -4,8 +4,16 @@ import '../modules/connectionPage/bindings/connection_page_binding.dart';
 import '../modules/connectionPage/views/connection_page_view.dart';
 import '../modules/edit_profile/bindings/edit_profile_binding.dart';
 import '../modules/edit_profile/views/edit_profile_view.dart';
-import '../modules/history/bindings/history_binding.dart';
-import '../modules/history/views/history_view.dart';
+import '../modules/historyModule/audioHistory/bindings/audio_history_binding.dart';
+import '../modules/historyModule/audioHistory/views/audio_history_view.dart';
+import '../modules/historyModule/filesHistory/bindings/files_history_binding.dart';
+import '../modules/historyModule/filesHistory/views/files_history_view.dart';
+import '../modules/historyModule/history/bindings/history_binding.dart';
+import '../modules/historyModule/history/views/history_view.dart';
+import '../modules/historyModule/imagesHistory/bindings/images_history_binding.dart';
+import '../modules/historyModule/imagesHistory/views/images_history_view.dart';
+import '../modules/historyModule/videoHistory/bindings/video_history_binding.dart';
+import '../modules/historyModule/videoHistory/views/video_history_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/menuPage/bindings/menu_page_binding.dart';
@@ -64,6 +72,26 @@ class AppPages {
       name: _Paths.STORAGE_LOCATION,
       page: () => const StorageLocationView(),
       binding: StorageLocationBinding(),
+    ),
+    GetPage(
+      name: _Paths.AUDIO_HISTORY,
+      page: () => const AudioHistoryView(),
+      binding: AudioHistoryBinding(),
+    ),
+    GetPage(
+      name: _Paths.VIDEO_HISTORY,
+      page: () => const VideoHistoryView(),
+      binding: VideoHistoryBinding(),
+    ),
+    GetPage(
+      name: _Paths.FILES_HISTORY,
+      page: () => const FilesHistoryView(),
+      binding: FilesHistoryBinding(),
+    ),
+    GetPage(
+      name: _Paths.IMAGES_HISTORY,
+      page: () => const ImagesHistoryView(),
+      binding: ImagesHistoryBinding(),
     ),
   ];
 }
