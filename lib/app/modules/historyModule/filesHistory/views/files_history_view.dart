@@ -9,10 +9,6 @@ class FilesHistoryView extends GetView<FilesHistoryController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('FilesHistoryView'),
-        centerTitle: true,
-      ),
       body: Center(
         child: Text(
           'FilesHistoryView is working',

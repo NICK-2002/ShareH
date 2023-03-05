@@ -9,10 +9,6 @@ class VideoHistoryView extends GetView<VideoHistoryController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('VideoHistoryView'),
-        centerTitle: true,
-      ),
       body: Center(
         child: Text(
           'VideoHistoryView is working',

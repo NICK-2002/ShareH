@@ -8,8 +8,8 @@ import '../modules/historyModule/audioHistory/bindings/audio_history_binding.dar
 import '../modules/historyModule/audioHistory/views/audio_history_view.dart';
 import '../modules/historyModule/filesHistory/bindings/files_history_binding.dart';
 import '../modules/historyModule/filesHistory/views/files_history_view.dart';
-import '../modules/historyModule/history/bindings/history_binding.dart';
-import '../modules/historyModule/history/views/history_view.dart';
+import '../modules/historyModule/mainHistoryPage/bindings/history_binding.dart';
+import '../modules/historyModule/mainHistoryPage/views/history_view.dart';
 import '../modules/historyModule/imagesHistory/bindings/images_history_binding.dart';
 import '../modules/historyModule/imagesHistory/views/images_history_view.dart';
 import '../modules/historyModule/videoHistory/bindings/video_history_binding.dart';

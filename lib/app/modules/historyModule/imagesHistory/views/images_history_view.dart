@@ -9,10 +9,6 @@ class ImagesHistoryView extends GetView<ImagesHistoryController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('ImagesHistoryView'),
-        centerTitle: true,
-      ),
       body: Center(
         child: Text(
           'ImagesHistoryView is working',

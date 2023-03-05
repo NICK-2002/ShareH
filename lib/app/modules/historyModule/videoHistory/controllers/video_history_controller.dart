@@ -1,9 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class VideoHistoryController extends GetxController {
   //TODO: Implement VideoHistoryController
 
-  final count = 0.obs;
+ 
   @override
   void onInit() {
     super.onInit();
@@ -18,6 +19,4 @@ class VideoHistoryController extends GetxController {
   void onClose() {
     super.onClose();
   }
-
-  void increment() => count.value++;
 }

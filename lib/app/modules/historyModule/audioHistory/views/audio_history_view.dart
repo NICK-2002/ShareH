@@ -9,10 +9,6 @@ class AudioHistoryView extends GetView<AudioHistoryController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('AudioHistoryView'),
-        centerTitle: true,
-      ),
       body: Center(
         child: Text(
           'AudioHistoryView is working',
