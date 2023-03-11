@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:nearby_connections/nearby_connections.dart';
 import 'package:share_h/app/data/collection.dart';
+import 'package:share_h/app/data/global.dart';
 import 'package:share_h/app/modules/historyModule/audioHistory/views/audio_history_view.dart';
 import 'package:share_h/app/modules/historyModule/filesHistory/views/files_history_view.dart';
 import 'package:share_h/app/modules/historyModule/imagesHistory/views/images_history_view.dart';
@@ -14,6 +15,7 @@ class HistoryController extends GetxController {
   //TODO: Implement HistoryController
   final home_controller = Get.put(HomeController());
   String count = "";
+  var selectedTab = 0.obs;
   List<Widget> items = [
     ImagesHistoryView(),
     VideoHistoryView(),
@@ -23,6 +25,7 @@ class HistoryController extends GetxController {
   int current = 0;
   @override
   void onInit() {
+    currentTab = 0;
     super.onInit();
   }
 
@@ -36,21 +39,34 @@ class HistoryController extends GetxController {
     super.onClose();
   }
 
-  audio_history() {
-    current = 2;
+  changeTab(choosenTab) {
+    selectedTab.value = choosenTab;
+    currentTab = choosenTab;
+    load(choosenTab);
     update();
   }
 
-  video_history() {
-    current = 1;
-    update();
+  load(int index) {
+    selectedTab.value = index;
   }
-  image_history() {
-    current = 0;
-    update();
-  }
-  file_history() {
-    current = 3;
-    update();
-  }
+
+  // audio_history() {
+  //   current = 2;
+  //   update();
+  // }
+
+  // video_history() {
+  //   current = 1;
+  //   update();
+  // }
+
+  // image_history() {
+  //   current = 0;
+  //   update();
+  // }
+
+  // file_history() {
+  //   current = 3;
+  //   update();
+  // }
 }

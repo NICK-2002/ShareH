@@ -2,6 +2,10 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:share_h/app/modules/historyModule/audioHistory/views/audio_history_view.dart';
+import 'package:share_h/app/modules/historyModule/filesHistory/views/files_history_view.dart';
+import 'package:share_h/app/modules/historyModule/imagesHistory/views/images_history_view.dart';
+import 'package:share_h/app/modules/historyModule/videoHistory/views/video_history_view.dart';
 import 'package:share_h/app/strings/string.dart';
 import 'package:share_h/app/widget/textview.dart';
 import '../controllers/history_controller.dart';
@@ -10,9 +14,9 @@ class HistoryView extends GetView<HistoryController> {
   const HistoryView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
+    return GetBuilder<HistoryController>(builder: (controller) {
+      return Scaffold(
+        body: SafeArea(
           child: Column(
             children: [
               Container(
@@ -47,7 +51,7 @@ class HistoryView extends GetView<HistoryController> {
                           },
                         ),
                         TextView(
-                          text: Strings.storageLocation,
+                          text: Strings.history,
                           color: Colors.white,
                           size: 21,
                           textAlign: TextAlign.center,
@@ -68,10 +72,10 @@ class HistoryView extends GetView<HistoryController> {
                             width: 70,
                             child: GestureDetector(
                               onTap: () {
-                                controller.image_history();
+                                controller.changeTab(0);
                               },
                               child: Card(
-                                color: Color.fromARGB(255, 245, 85, 74),
+                                color: controller.selectedTab ==0?Color.fromARGB(255, 245, 85, 74):Colors.transparent,
                                 shape: RoundedRectangleBorder(
                                   side: BorderSide(
                                     color: Colors.greenAccent,
@@ -113,10 +117,11 @@ class HistoryView extends GetView<HistoryController> {
                             width: 70,
                             child: GestureDetector(
                               onTap: () {
-                                controller.video_history();
+                                controller.changeTab(1);
+                                ;
                               },
                               child: Card(
-                                color: Colors.transparent,
+                                color: controller.selectedTab==1?Color.fromARGB(255, 245, 85, 74):Colors.transparent,
                                 shape: RoundedRectangleBorder(
                                   side: BorderSide(
                                     color: Colors.greenAccent,
@@ -158,7 +163,7 @@ class HistoryView extends GetView<HistoryController> {
                             width: 70,
                             child: GestureDetector(
                               onTap: () {
-                                controller.audio_history();
+                                controller.changeTab(2);
                               },
                               child: Card(
                                 shape: RoundedRectangleBorder(
@@ -168,7 +173,7 @@ class HistoryView extends GetView<HistoryController> {
                                   borderRadius: BorderRadius.circular(
                                       12.0), //<-- SEE HERE
                                 ),
-                                color: Colors.transparent,
+                                color: controller.selectedTab==2?Color.fromARGB(255, 245, 85, 74):Colors.transparent,
                                 child: Container(
                                   decoration: const BoxDecoration(
                                       borderRadius: BorderRadius.all(
@@ -203,7 +208,7 @@ class HistoryView extends GetView<HistoryController> {
                             width: 70,
                             child: GestureDetector(
                               onTap: () {
-                                controller.file_history();
+                                controller.changeTab(3);
                               },
                               child: Card(
                                 shape: RoundedRectangleBorder(
@@ -213,7 +218,7 @@ class HistoryView extends GetView<HistoryController> {
                                   borderRadius: BorderRadius.circular(
                                       12.0), //<-- SEE HERE
                                 ),
-                                color: Colors.transparent,
+                                color: controller.selectedTab==3?Color.fromARGB(255, 245, 85, 74):Colors.transparent,
                                 child: Container(
                                   decoration: const BoxDecoration(
                                       borderRadius: BorderRadius.all(
@@ -249,10 +254,24 @@ class HistoryView extends GetView<HistoryController> {
                   ],
                 ),
               ),
-              // controller.items[controller.current]
+              stackedContainers(controller),
             ],
           ),
         ),
+      );
+    });
+  }
+
+  Widget stackedContainers(HistoryController controller) {
+    return Expanded(
+      child: IndexedStack(
+        index: controller.selectedTab.value,
+        children: [
+          ImagesHistoryView(),
+          VideoHistoryView(),
+          AudioHistoryView(),
+          FilesHistoryView(),
+        ],
       ),
     );
   }

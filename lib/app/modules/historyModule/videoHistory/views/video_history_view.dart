@@ -8,13 +8,17 @@ class VideoHistoryView extends GetView<VideoHistoryController> {
   const VideoHistoryView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text(
-          'VideoHistoryView is working',
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
+    return GetBuilder<VideoHistoryController>(
+      builder: (controller) {
+        return Scaffold(
+          body: Center(
+            child: Text(
+              'VideoHistoryView is working',
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
+        );
+      }
     );
   }
 }

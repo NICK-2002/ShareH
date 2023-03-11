@@ -8,13 +8,17 @@ class ImagesHistoryView extends GetView<ImagesHistoryController> {
   const ImagesHistoryView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text(
-          'ImagesHistoryView is working',
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
+    return GetBuilder<ImagesHistoryController>(
+      builder: (controller) {
+        return Scaffold(
+          body: Center(
+            child: Text(
+              'ImagesHistoryView is working',
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
+        );
+      }
     );
   }
 }

@@ -8,13 +8,17 @@ class AudioHistoryView extends GetView<AudioHistoryController> {
   const AudioHistoryView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text(
-          'AudioHistoryView is working',
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
+    return GetBuilder<AudioHistoryController>(
+      builder: (controller) {
+        return Scaffold(
+          body: Center(
+            child: Text(
+              'AudioHistoryView is working',
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
+        );
+      }
     );
   }
 }
