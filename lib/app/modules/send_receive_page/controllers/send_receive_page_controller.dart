@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:nearby_connections/nearby_connections.dart';
+import 'package:share_h/app/data/global.dart';
 import 'package:share_h/app/modules/home/controllers/home_controller.dart';
 import 'package:share_h/app/routes/app_pages.dart';
 
@@ -13,17 +14,19 @@ class SendReceivePageController extends GetxController {
   final home_controller = Get.put(HomeController());
   final count = 0.obs;
   String? tempFileUri;
-  double c = 0;
+  RxDouble cPer = 0.0.obs;
+  GlobalVar test = Get.find<GlobalVar>();
+  final homeController = Get.find<HomeController>();
   @override
   void onInit() {
     super.onInit();
+    cPer.value = homeController.c.value;
     pageName = argumentData[0];
   }
 
   @override
   void onReady() {
     super.onReady();
-    //c = Get.find<HomeController>().c ;
   }
 
   @override

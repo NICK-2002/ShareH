@@ -12,8 +12,10 @@ import 'package:permission_handler/permission_handler.dart';
 
 import 'package:share_h/app/data/collection.dart';
 import 'package:share_h/app/data/fileTransfer_Database.dart';
+import 'package:share_h/app/data/global.dart';
 import 'package:share_h/app/model/fileDetails.dart';
 import 'package:share_h/app/modules/connectionPage/controllers/connection_page_controller.dart';
+import 'package:share_h/app/modules/send_receive_page/controllers/send_receive_page_controller.dart';
 import 'package:share_h/app/routes/app_pages.dart';
 
 class HomeController extends GetxController {
@@ -26,10 +28,9 @@ class HomeController extends GetxController {
   Map<int, String> map = Map();
   String? tempFileUri;
   bool hshowImageButton = false;
-  double a = 0;
-  double b = 0;
-  double c = 0;
-
+  RxDouble a = 0.0.obs;
+  RxDouble b = 0.0.obs;
+  RxDouble c = 0.0.obs;
   @override
   Future<void> onInit() async {
     super.onInit();
@@ -71,12 +72,8 @@ class HomeController extends GetxController {
     update();
   }
 
-  void change(double f) {
-    b = f;
-    c = (b / a) * 100;
-    update();
-
-    print(c);
+  void updateVariable(double val) {
+   c.value = val;
   }
 
   Future<void> sender() async {
@@ -215,12 +212,17 @@ class HomeController extends GetxController {
                       }
                     },
                     onPayloadTransferUpdate: (endid, payloadTransferUpdate) {
-                      a = payloadTransferUpdate.totalBytes.toDouble();
+                      a.value = payloadTransferUpdate.totalBytes.toDouble();
                       if (payloadTransferUpdate.status ==
                           PayloadStatus.IN_PROGRESS) {
-                        change(
-                            payloadTransferUpdate.bytesTransferred.toDouble());
-                        print(payloadTransferUpdate.bytesTransferred);
+                        b.value =
+                            payloadTransferUpdate.bytesTransferred.toDouble();
+                        GlobalVar.to.dowlnload.value =
+                            (b.value / a.value) * 100;
+                        c.value = (b.value / a.value) * 100;
+                        updateVariable(c.value);
+
+                        print("${GlobalVar.to.dowlnload.value}%");
                       } else if (payloadTransferUpdate.status ==
                           PayloadStatus.FAILURE) {
                         print("failed");
@@ -285,11 +287,11 @@ class HomeController extends GetxController {
     final b = await Nearby()
         .copyFileAndDeleteOriginal(uri, '${parentDir.path}/$fileName');
     showSnackbar("Moved file:" + b.toString());
-      final data = FileDetails(
+    final data = FileDetails(
         fileName: fileName,
-         location: '${parentDir.path}/$fileName',
-         dateTime: DateTime.now());
-     await FileTransferDatabase.instance.insertInUserTable(data);
+        location: '${parentDir.path}/$fileName',
+        dateTime: DateTime.now());
+    await FileTransferDatabase.instance.insertInUserTable(data);
     return b;
   }
 

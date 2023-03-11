@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:share_h/app/data/global.dart';
 import 'package:share_h/app/strings/string.dart';
 import 'package:share_h/app/widget/textview.dart';
 
@@ -98,22 +99,11 @@ class SendReceivePageView extends GetView<SendReceivePageController> {
                             child: Text("video Picker")),
                       ],
                     )
-                  : Column(
-                      children: [
-                        ElevatedButton(
-                            onPressed: () {
-                              controller.openImage(0);
-                            },
-                            child: Text("Image Picker")),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        ElevatedButton(
-                            onPressed: () {
-                              controller.openImage(1);
-                            },
-                            child: Text("video Picker")),
-                      ],
+                  : Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: LinearProgressIndicator(
+                        value: (controller.cPer.value / 100),
+                      ),
                     )),
         ],
       ));
