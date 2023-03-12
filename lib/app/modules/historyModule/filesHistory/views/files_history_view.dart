@@ -1,17 +1,21 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:share_h/app/modules/historyModule/mainHistoryPage/controllers/history_controller.dart';
 import 'package:share_h/app/widget/textview.dart';
 
 import '../controllers/files_history_controller.dart';
 
-class FilesHistoryView extends GetView<FilesHistoryController> {
+class FilesHistoryView extends GetView<HistoryController> {
   const FilesHistoryView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<FilesHistoryController>(builder: (controller) {
+    return GetBuilder<HistoryController>(builder: (controller) {
       return Scaffold(
-        body: Center(
+        body: controller.files.isEmpty
+            ? Center(
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -31,7 +35,26 @@ class FilesHistoryView extends GetView<FilesHistoryController> {
               color: Color.fromARGB(255, 168, 167, 167),
             )
           ],
-        )),
+        )):Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3),
+                    itemCount: controller.files.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Card(
+                        child: Container(
+                          padding: const EdgeInsets.all(1.0),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              image: DecorationImage(
+                                  image: FileImage(
+                                      File("${controller.files[index + 1]}")),
+                                  fit: BoxFit.cover)),
+                        ),
+                      );
+                    }),
+              ),
       );
     });
   }

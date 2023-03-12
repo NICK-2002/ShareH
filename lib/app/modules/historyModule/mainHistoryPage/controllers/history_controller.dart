@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:nearby_connections/nearby_connections.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:share_h/app/data/collection.dart';
 import 'package:share_h/app/data/fileTransfer_Database.dart';
 import 'package:share_h/app/data/global.dart';
@@ -12,6 +13,7 @@ import 'package:share_h/app/modules/historyModule/filesHistory/views/files_histo
 import 'package:share_h/app/modules/historyModule/imagesHistory/views/images_history_view.dart';
 import 'package:share_h/app/modules/historyModule/videoHistory/views/video_history_view.dart';
 import 'package:share_h/app/modules/home/controllers/home_controller.dart';
+import 'package:video_thumbnail/video_thumbnail.dart';
 
 class HistoryController extends GetxController {
   //TODO: Implement HistoryController
@@ -21,6 +23,7 @@ class HistoryController extends GetxController {
   Map<int, String> video = {};
   Map<int, String> audio = {};
   Map<int, String> files = {};
+  List<String> videoThumbnailPath = [];
   int pictureIndex = 1;
   int videoIndex = 1;
   int audioIndex = 1;
@@ -71,6 +74,7 @@ class HistoryController extends GetxController {
           fileType[1] == "mpg") {
         video[videoIndex] = mimeStr;
         videoIndex++;
+        vidiothumnnail(user[i]);
       } else if (fileType[1] == "mp3" ||
           fileType[1] == "aac" ||
           fileType[1] == "aa" ||
@@ -85,12 +89,7 @@ class HistoryController extends GetxController {
         filesIndex++;
       }
     }
-    print(user);
-    print(picture);
-    print(video);
-    print(audio);
-
-    print(files);
+    update();
   }
 
   changeTab(choosenTab) {
@@ -104,23 +103,22 @@ class HistoryController extends GetxController {
     selectedTab.value = index;
   }
 
-  // audio_history() {
-  //   current = 2;
-  //   update();
-  // }
-
-  // video_history() {
-  //   current = 1;
-  //   update();
-  // }
-
-  // image_history() {
-  //   current = 0;
-  //   update();
-  // }
-
-  // file_history() {
-  //   current = 3;
-  //   update();
-  // }
+  Future<String?> vidiothumnnail(FileDetails list) async {
+    final filename = await VideoThumbnail.thumbnailFile(
+      video: list.location,
+      thumbnailPath: (await getTemporaryDirectory()).path,
+      imageFormat: ImageFormat.WEBP,
+      maxHeight:
+          64, // specify the height of the thumbnail, let the width auto-scaled to keep the source aspect ratio
+      quality: 75,
+    );
+    videoThumbnailPath.add(filename ?? "assets/icon/background.png");
+    // user.forEach((element) {
+    //   if (element.id == list.id) {
+    //     element.location = filename!;
+    //     print('repeats');
+    //     update();
+    //   }
+    // });
+  }
 }

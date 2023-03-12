@@ -574,6 +574,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.6.0"
+  video_thumbnail:
+    dependency: "direct main"
+    description:
+      name: video_thumbnail
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.5.3"
   vxstate:
     dependency: transitive
     description:

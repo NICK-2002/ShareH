@@ -3,7 +3,7 @@ import 'package:share_h/app/data/fileDetailAtrribute.dart';
 class FileDetails {
   final int? id;
   final String fileName;
-  final String location;
+  String location;
   final DateTime dateTime;
 
   FileDetails(

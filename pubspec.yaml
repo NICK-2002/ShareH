@@ -21,6 +21,7 @@ dependencies:
   flutter_share: ^2.0.0
   shared_preferences: ^2.0.15
   fluentui_system_icons: ^1.1.190
+  video_thumbnail: ^0.5.3
   path: ^1.8.0
   flutter:
     sdk: flutter
