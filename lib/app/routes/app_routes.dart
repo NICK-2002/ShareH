@@ -16,6 +16,7 @@ abstract class Routes {
   static const FILES_HISTORY = _Paths.FILES_HISTORY;
   static const IMAGES_HISTORY = _Paths.IMAGES_HISTORY;
   static const PHOTO_SHOW = _Paths.PHOTO_SHOW;
+  static const VIDEO_SHOW = _Paths.VIDEO_SHOW;
 }
 
 abstract class _Paths {
@@ -33,4 +34,5 @@ abstract class _Paths {
   static const FILES_HISTORY = '/files-history';
   static const IMAGES_HISTORY = '/images-history';
   static const PHOTO_SHOW = '/photo-show';
+  static const VIDEO_SHOW = '/video-show';
 }
