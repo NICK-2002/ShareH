@@ -2,10 +2,11 @@ import 'package:get/get.dart';
 
 class PhotoShowController extends GetxController {
   //TODO: Implement PhotoShowController
-
-  final count = 0.obs;
+  var data = Get.arguments;
+  RxString sc = "".obs;
   @override
   void onInit() {
+    sc.value = data[0];
     super.onInit();
   }
 
@@ -18,6 +19,4 @@ class PhotoShowController extends GetxController {
   void onClose() {
     super.onClose();
   }
-
-  void increment() => count.value++;
 }
