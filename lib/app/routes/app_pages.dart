@@ -8,16 +8,18 @@ import '../modules/historyModule/audioHistory/bindings/audio_history_binding.dar
 import '../modules/historyModule/audioHistory/views/audio_history_view.dart';
 import '../modules/historyModule/filesHistory/bindings/files_history_binding.dart';
 import '../modules/historyModule/filesHistory/views/files_history_view.dart';
-import '../modules/historyModule/mainHistoryPage/bindings/history_binding.dart';
-import '../modules/historyModule/mainHistoryPage/views/history_view.dart';
 import '../modules/historyModule/imagesHistory/bindings/images_history_binding.dart';
 import '../modules/historyModule/imagesHistory/views/images_history_view.dart';
+import '../modules/historyModule/mainHistoryPage/bindings/history_binding.dart';
+import '../modules/historyModule/mainHistoryPage/views/history_view.dart';
 import '../modules/historyModule/videoHistory/bindings/video_history_binding.dart';
 import '../modules/historyModule/videoHistory/views/video_history_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/menuPage/bindings/menu_page_binding.dart';
 import '../modules/menuPage/views/menu_page_view.dart';
+import '../modules/photo_show/bindings/photo_show_binding.dart';
+import '../modules/photo_show/views/photo_show_view.dart';
 import '../modules/send_receive_page/bindings/send_receive_page_binding.dart';
 import '../modules/send_receive_page/views/send_receive_page_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
@@ -92,6 +94,11 @@ class AppPages {
       name: _Paths.IMAGES_HISTORY,
       page: () => const ImagesHistoryView(),
       binding: ImagesHistoryBinding(),
+    ),
+    GetPage(
+      name: _Paths.PHOTO_SHOW,
+      page: () => const PhotoShowView(),
+      binding: PhotoShowBinding(),
     ),
   ];
 }
