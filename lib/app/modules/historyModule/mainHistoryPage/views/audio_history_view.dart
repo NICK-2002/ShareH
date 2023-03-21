@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:share_h/app/modules/historyModule/mainHistoryPage/controllers/history_controller.dart';
 import 'package:share_h/app/widget/textview.dart';
 
-import '../controllers/audio_history_controller.dart';
-
-class AudioHistoryView extends GetView<AudioHistoryController> {
+class AudioHistoryView extends GetView<HistoryController> {
   const AudioHistoryView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<AudioHistoryController>(builder: (controller) {
+    return GetBuilder<HistoryController>(builder: (controller) {
       return Scaffold(
         body: Center(
             child: Column(

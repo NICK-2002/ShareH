@@ -6,8 +6,6 @@ import 'package:get/get.dart';
 import 'package:share_h/app/modules/historyModule/mainHistoryPage/controllers/history_controller.dart';
 import 'package:share_h/app/widget/textview.dart';
 
-import '../controllers/video_history_controller.dart';
-
 class VideoHistoryView extends GetView<HistoryController> {
   const VideoHistoryView({Key? key}) : super(key: key);
   @override

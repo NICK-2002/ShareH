@@ -8,10 +8,10 @@ import 'package:share_h/app/data/collection.dart';
 import 'package:share_h/app/data/fileTransfer_Database.dart';
 import 'package:share_h/app/data/global.dart';
 import 'package:share_h/app/model/fileDetails.dart';
-import 'package:share_h/app/modules/historyModule/audioHistory/views/audio_history_view.dart';
-import 'package:share_h/app/modules/historyModule/filesHistory/views/files_history_view.dart';
-import 'package:share_h/app/modules/historyModule/imagesHistory/views/images_history_view.dart';
-import 'package:share_h/app/modules/historyModule/videoHistory/views/video_history_view.dart';
+import 'package:share_h/app/modules/historyModule/mainHistoryPage/views/audio_history_view.dart';
+import 'package:share_h/app/modules/historyModule/mainHistoryPage/views/files_history_view.dart';
+import 'package:share_h/app/modules/historyModule/mainHistoryPage/views/images_history_view.dart';
+import 'package:share_h/app/modules/historyModule/mainHistoryPage/views/video_history_view.dart';
 import 'package:share_h/app/modules/home/controllers/home_controller.dart';
 import 'package:video_thumbnail/video_thumbnail.dart';
 

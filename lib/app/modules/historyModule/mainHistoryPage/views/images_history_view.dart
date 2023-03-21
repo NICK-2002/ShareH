@@ -7,8 +7,6 @@ import 'package:share_h/app/modules/historyModule/mainHistoryPage/controllers/hi
 import 'package:share_h/app/routes/app_pages.dart';
 import 'package:share_h/app/widget/textview.dart';
 
-import '../controllers/images_history_controller.dart';
-
 class ImagesHistoryView extends GetView<HistoryController> {
   const ImagesHistoryView({Key? key}) : super(key: key);
   @override

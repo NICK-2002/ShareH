@@ -2,10 +2,10 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:share_h/app/modules/historyModule/audioHistory/views/audio_history_view.dart';
-import 'package:share_h/app/modules/historyModule/filesHistory/views/files_history_view.dart';
-import 'package:share_h/app/modules/historyModule/imagesHistory/views/images_history_view.dart';
-import 'package:share_h/app/modules/historyModule/videoHistory/views/video_history_view.dart';
+import 'package:share_h/app/modules/historyModule/mainHistoryPage/views/audio_history_view.dart';
+import 'package:share_h/app/modules/historyModule/mainHistoryPage/views/files_history_view.dart';
+import 'package:share_h/app/modules/historyModule/mainHistoryPage/views/images_history_view.dart';
+import 'package:share_h/app/modules/historyModule/mainHistoryPage/views/video_history_view.dart';
 import 'package:share_h/app/strings/string.dart';
 import 'package:share_h/app/widget/textview.dart';
 import '../controllers/history_controller.dart';
