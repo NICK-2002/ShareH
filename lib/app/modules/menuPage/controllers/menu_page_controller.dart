@@ -30,10 +30,10 @@ class MenuPageController extends GetxController {
 
   Future<void> share() async {
     await FlutterShare.share(
-      title: 'ShareH',
-      text: 'Share File instantly like a flash',
-      linkUrl: 'https://flutter.dev/',
-      chooserTitle: 'Sahring Application'
-    );
+        title: 'ShareH',
+        text: 'Share File instantly like a flash',
+        linkUrl:
+            'https://drive.google.com/file/d/1I6Ahv5a0aGT5lS_WhEii9xEEqvEhbgeV/view?usp=share_link',
+        chooserTitle: 'Sahring Application');
   }
 }
