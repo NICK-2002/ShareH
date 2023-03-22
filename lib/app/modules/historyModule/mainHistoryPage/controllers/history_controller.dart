@@ -1,3 +1,4 @@
+import 'package:audioplayer/audioplayer.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -37,6 +38,8 @@ class HistoryController extends GetxController {
     FilesHistoryView()
   ];
   int current = 0;
+  AudioPlayer audioPlayer = AudioPlayer();
+
   @override
   void onInit() {
     currentTab = 0;
@@ -120,5 +123,65 @@ class HistoryController extends GetxController {
     //     update();
     //   }
     // });
+  }
+
+  void audioPlay(BuildContext context, String songUrl) {
+    audioPlayer.play(songUrl);
+    showModalBottomSheet(
+      backgroundColor: Colors.grey[400],
+      context: context,
+      builder: (context) {
+        return Align(
+          alignment: Alignment.topCenter,
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Stack(
+              children: [
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: Container(
+                    height: 10,
+                    width: 80,
+                    decoration: BoxDecoration(
+                        color: Colors.grey,
+                        borderRadius: BorderRadius.all(Radius.circular(25))),
+                  ),
+                ),
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                        left: 8.0, right: 8.0, bottom: 8.0, top: 15.0),
+                    child: Container(
+                      height: Get.height * 0.5,
+                      width: Get.width * 0.8,
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                              begin: Alignment.centerRight,
+                              end: Alignment.centerLeft,
+                              colors: <Color>[
+                                Color.fromARGB(255, 157, 189, 237),
+                                Color.fromARGB(255, 218, 81, 248),
+                                Color.fromARGB(255, 241, 167, 247),
+                              ]),
+                          borderRadius: BorderRadius.all(Radius.circular(25))),
+                      child: Stack(
+                        children: [
+                          Image.asset(
+                            "assets/icon/audioIcon.png",
+                            fit: BoxFit.fill,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    ).whenComplete(() {
+      audioPlayer.stop();
+    });
   }
 }

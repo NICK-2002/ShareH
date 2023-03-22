@@ -23,6 +23,7 @@ dependencies:
   fluentui_system_icons: ^1.1.190
   video_thumbnail: ^0.5.3
   video_player: ^2.6.0
+  audioplayer: ^0.8.1
   path: ^1.8.0
   flutter:
     sdk: flutter

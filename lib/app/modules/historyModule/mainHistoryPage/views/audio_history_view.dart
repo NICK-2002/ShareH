@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -42,7 +44,12 @@ class AudioHistoryView extends GetView<HistoryController> {
                         itemCount: controller.audio.length,
                         itemBuilder: (BuildContext context, int index) {
                           return GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              final file =
+                                  new File(controller.audio[index + 1]!);
+                              //controller.audioPlayer.play();
+                              controller.audioPlay(Get.context!,file.path);
+                            },
                             child: Card(
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(
