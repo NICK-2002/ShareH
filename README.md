@@ -9,7 +9,7 @@
 
 ## Some ScreenShot of ShareH View :
 
-![image](https://github.com/NICK-2002/ShareH/assets/82725865/fe354503-f16c-46dd-b8c3-29d208fbb1b3) ![image](https://github.com/NICK-2002/ShareH/assets/82725865/557125fa-cce1-4c97-a454-a77229092aa6)
+![image](https://github.com/NICK-2002/ShareH/assets/82725865/fe354503-f16c-46dd-b8c3-29d208fbb1b3)
 
 
 ![image](https://github.com/NICK-2002/ShareH/assets/82725865/557125fa-cce1-4c97-a454-a77229092aa6)
